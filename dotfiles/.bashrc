@@ -43,7 +43,7 @@ esac
 # uncomment for a colored prompt, if the terminal has the capability; turned
 # off by default to not distract the user: the focus in a terminal window
 # should be on the output of commands, not on the prompt
-#force_color_prompt=yes
+force_color_prompt=yes
 
 if [ -n "$force_color_prompt" ]; then
     if [ -x /usr/bin/tput ] && tput setaf 1 >&/dev/null; then
@@ -116,15 +116,41 @@ if ! shopt -oq posix; then
   fi
 fi
 
-alias emacs="emacs -nw"
+#Aliases for applications
+alias emacs="emacs -nw" #Opens emacs in the terminal as opposed to gui 
+alias r='ranger'
 
+#Aliases for path locations
 export PATH="/home/kevin/.local/bin:$PATH"
 export PATH="$HOME/.rbenv/bin:$PATH"
 eval "$(rbenv init -)"
 
+#aliases for networked locations
 alias hal="ssh hubblebug@192.168.0.122"
 
 powerline-daemon -q
 POWERLINE_BASH_CONTINUATION=1
 POWERLINE_BASH_SELECT=1
 . /home/kevin/.local/lib/python2.7/site-packages/powerline/bindings/bash/powerline.sh
+
+#Various Aliases to make navigation easier
+alias ls='ls --color=auto'
+
+#Navigational Aliases
+alias ..='cd ..'
+alias ~='/cd ~'
+alias brc='vim ~/.bashrc'
+alias vrc='vim ~/.vimrc'
+alias v='vim'
+alias sv='sudo vim'
+alias sl='sl -e'
+alias ap='apropos'
+
+#Prompts confirmation before file critical actions
+alias cp='/bin/cp -i'
+alias mv='/bin/mv -i'
+alias rm='/bin/rm -i'
+
+#Change directory to a directory by typing the directory name
+shopt -s autocd
+

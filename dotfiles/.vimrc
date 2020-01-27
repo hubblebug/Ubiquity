@@ -8,7 +8,7 @@
 :  autocmd BufLeave,FocusLost,InsertEnter   * set norelativenumber
 :augroup END
 
-"Sets the register to system clipboard
+"Sets the register to system clipboard (use vim-gtk for this)
 :set clipboard=unnamedplus
 
 "Set highlighted search
@@ -21,3 +21,10 @@
 
 set rtp+=$HOME/.local/lib/python2.7/site-packages/powerline/bindings/vim/
 set laststatus=2
+
+"Sets fuzzy finding recursively in any directory
+set path+=**
+
+"Display all matching files with tab completion
+set wildmenu
+
